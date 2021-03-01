@@ -24,9 +24,3 @@ ansible_user=vagrant
 ansible_password=vagrant
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
-
-[ubuntu_domain]
-192.168.56.13
-
-[ubuntu_outside]
-192.168.56.14

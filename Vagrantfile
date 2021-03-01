@@ -47,16 +47,4 @@ Vagrant.configure("2") do |config|
     win_workstation.vm.provision "shell", path:"ConfigureRemotingForAnsible.ps1"
   end
 
-  config.vm.define "ubuntu_domain" do |ubuntu_domain|
-    ubuntu_domain.vm.box = "ubuntu/focal64"
-    ubuntu_domain.vm.network "private_network", ip: "192.168.56.13"
-    ubuntu_domain.vm.network :forwarded_port, guest: 22, host: 10022, id: "msrdp"
-  end
-
-  config.vm.define "ubuntu_outside" do |ubuntu_outside|
-    ubuntu_outside.vm.box = "ubuntu/focal64"
-    ubuntu_outside.vm.network "private_network", ip: "192.168.56.14"
-    ubuntu_outside.vm.network :forwarded_port, guest: 22, host: 20022, id: "msrdp"
-  end
-
 end

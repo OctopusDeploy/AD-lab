@@ -41,20 +41,20 @@
     state: present
   ignore_errors: yes
 
-- name: Ensure that cyberloop.local domain exixts
+- name: Ensure that octopusadlab.local domain exixts
   win_domain:
-    dns_domain_name: cyberloop.local
+    dns_domain_name: octopusadlab.local
     safe_mode_password: StrongPass123!
   register: check_domain
 
-- name: Reboot to complete cyberloop.local domain creation
+- name: Reboot to complete octopusadlab.local domain creation
   win_reboot:
   when: check_domain.changed
 
 - name: Ensure the server is a domain controller
   win_domain_controller:
-    dns_domain_name: cyberloop.local
-    domain_admin_user: Administrator@cyberloop.local
+    dns_domain_name: octopusadlab.local
+    domain_admin_user: Administrator@octopusadlab.local
     domain_admin_password: StrongPass123!
     safe_mode_password: StrongPass123!
     state: domain_controller
@@ -79,33 +79,33 @@
       - "8.8.8.8"
       - "8.8.4.4"
 
-- name: Ensure that admin@cyberloop.local is present as Domain Admin
+- name: Ensure that admin@octopusadlab.local is present as Domain Admin
   win_domain_user:
     name: admin
     password: StrongPass123!
     password_never_expires: yes
     state: present
-    path: cn=Users,dc=CYBERLOOP,dc=local
+    path: cn=Users,dc=OCTOPUSADLAB,dc=local
     groups:
       - Domain Admins
 
-- name: Ensure that bob@cyberloop.local is present in OU cn=Users,dc=CYBERLOOP,dc=local
+- name: Ensure that bob@octopusadlab.local is present in OU cn=Users,dc=OCTOPUSADLAB,dc=local
   win_domain_user:
     name: bob
     password: StrongPass123!
     password_never_expires: yes
     state: present
-    path: cn=Users,dc=CYBERLOOP,dc=local
+    path: cn=Users,dc=OCTOPUSADLAB,dc=local
     groups:
       - Users
 
-- name: Ensure that alice@cyberloop.local is present in OU cn=Users,dc=CYBERLOOP,dc=local
+- name: Ensure that alice@octopusadlab.local is present in OU cn=Users,dc=OCTOPUSADLAB,dc=local
   win_domain_user:
     name: alice
     password: StrongPass123!
     password_never_expires: yes
     state: present
-    path: cn=Users,dc=CYBERLOOP,dc=local
+    path: cn=Users,dc=OCTOPUSADLAB,dc=local
     groups:
       - Users
 
@@ -113,47 +113,47 @@
   win_domain_group:
     name: allTeams
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present
 
 - name: Create DBAOracle
   win_domain_group:
     name: DBAOracle
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present
 
 - name: Create DBASQLServer
   win_domain_group:
     name: DBASQLServer
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present
 
 - name: Create DBAMongo group
   win_domain_group:
     name: DBAMongo
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present
 
 - name: Create DBARedis group
   win_domain_group:
     name: DBARedis
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present
 
 - name: Create DBAEnterprise Group ...
   win_domain_group:
     name: DBAEnterprise
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present
 
 - name: Create a Test Group ...
   win_domain_group:
     name: JustATestDemo
     scope: global
-    path: DC=cyberloop,DC=local
+    path: DC=octopusadlab,DC=local
     state: present

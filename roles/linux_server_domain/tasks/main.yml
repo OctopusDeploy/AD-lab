@@ -22,12 +22,12 @@
   shell: realm list
   register: response
 
-- name: Join cyberloop.local domain
+- name: Join octopusadlab.local domain
   expect:
     command: "realm join {{ domain }}"
     responses:
       "Password for Administrator:": "{{ Administrator_pass }}"
-  when: '"cyberloop.local" not in response.stdout_lines' 
+  when: '"octopusadlab.local" not in response.stdout_lines' 
   become: yes
 
 - name: Modify /etc/pam.d/common-account to create home dir automatically when logging in with AD users

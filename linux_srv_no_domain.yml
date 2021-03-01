@@ -1,5 +1,5 @@
 ---
-- name: cyberloop.local Linux server outside the domain configuration
+- name: octopusadlab.local Linux server outside the domain configuration
   hosts: linux_srv_outside
   
   roles:

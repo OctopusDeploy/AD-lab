@@ -11,4 +11,17 @@
     state: present
   with_items:
   - git
-  - octopusdeploy
+
+- name: Windows | Check for OctopusDSC Powershell module
+  win_psmodule:
+    name: OctopusDSC
+    state: present
+
+- name: Windows | Configure local Octopus Server with DSC
+  win_dsc:
+    resource_name: cOctopusServer
+    Ensure: "Present"
+    State: "Started"
+    Name: "OctopusServer"
+    WebListenPrefix: "http://localhost:8080"
+    SqlDbConnectionString: "Server=localhost;Database=Octopus;Trusted_Connection=True;"

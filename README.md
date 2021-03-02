@@ -1,9 +1,8 @@
 # Active Directory Lab
 
-This lab is made of five virtual machines:
+This lab is made of two virtual machines:
 - **Domain controller** running on Windows Server 2019
-- **Member server** with a Microsoft ISS web-server and a Microsoft SQL server
-- **Windows workstation** running on Windows 10
+- **Member server** with an Octopus Deploy server and a Microsoft SQL server
 
 The lab setup is automated using vagrant and ansible automation tools.
 

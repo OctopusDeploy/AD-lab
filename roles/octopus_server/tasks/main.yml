@@ -1,0 +1,14 @@
+- name: Ensure chocolatey is installed
+  win_chocolatey:
+    name:
+    - chocolatey
+    - chocolatey-core.extension
+    state: present
+
+- name: Install multiple packages sequentially
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  with_items:
+  - git
+  - octopusdeploy

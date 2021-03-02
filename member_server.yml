@@ -7,5 +7,6 @@
     - common
     - member_server
     - mssql
+    - octopus_server
 
 ...

@@ -25,3 +25,14 @@
     Name: "OctopusServer"
     WebListenPrefix: "http://localhost:8080"
     SqlDbConnectionString: "Server=localhost;Database=Octopus;Trusted_Connection=True;"
+    OctopusAdminCredential_username: Administrator@octopusadlab.local
+    OctopusAdminCredential_password: StrongPass123!
+    AllowUpgradeCheck: false
+    AllowCollectionOfUsageStatistics: false
+    AutoLoginEnabled: true
+
+- name: Windows | Configure local Octopus Server AD auth with DSC
+  win_dsc:
+    resource_name: cOctopusServerActiveDirectoryAuthentication
+    InstanceName: "OctopusServer"
+    Enabled: true

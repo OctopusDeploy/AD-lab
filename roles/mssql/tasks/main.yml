@@ -251,8 +251,12 @@
   tags: configure_sql
   ignore_errors: yes
 
-- name: Install Chocolatey ... easy way to get SQL Server Management Studio
-  script: install.ps1
+- name: Ensure chocolatey is installed
+  win_chocolatey:
+    name:
+    - chocolatey
+    - chocolatey-core.extension
+    state: present
 
 - name: Install multiple packages sequentially
   win_chocolatey:

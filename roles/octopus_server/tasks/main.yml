@@ -36,3 +36,5 @@
     resource_name: cOctopusServerActiveDirectoryAuthentication
     InstanceName: "OctopusServer"
     Enabled: true
+    AllowFormsAuthenticationForDomainUsers: $false
+    ActiveDirectoryContainer: "cn=Users,dc=OCTOPUSADLAB,dc=local"

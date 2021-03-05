@@ -1,8 +1,10 @@
 Vagrant.configure("2") do |config|
   
   config.vm.provider "virtualbox" do |v|
-    v.memory = 1024
+    v.memory = 2048
     v.cpus = 1
+    v.customize ["modifyvm", :id, "--graphicscontroller", "vboxsvga"]
+    v.customize ["modifyvm", :id, "--ostype", "Windows2019_64"]
   end
 
   config.vm.define "dc" do |dc|

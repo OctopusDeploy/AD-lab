@@ -24,7 +24,7 @@ Vagrant will be needed to provision the virtual machines and ansible to automate
 
 ### Setup
 
-The default domain will be octopusadlab.local, on the subnet 192.168.56.1/24 and each machine has only been allocated with 1024MB of memory. If you want to change some of these settings some small modifications are required inside the configuration files.
+The default domain will be octopusadlab.local, on the subnet 192.168.56.1/24 and each machine has only been allocated with 2048MB of memory. If you want to change some of these settings some small modifications are required inside the configuration files.
 
 > NOTE: On macOS Big Sur, you will need to `export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES` before running `ansible-playbook` to work around a [bug in Python on macOS](https://github.com/ansible/ansible/issues/49207).
 

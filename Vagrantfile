@@ -30,6 +30,7 @@ Vagrant.configure("2") do |config|
     win_server.vm.network "private_network", ip: "192.168.56.11"
     win_server.vm.network :forwarded_port, guest: 3389, host: 33389, id: "msrdp"
     win_server.vm.network :forwarded_port, guest: 5985, host: 35985, id: "winrm"
+    win_server.vm.network :forwarded_port, guest: 8080, host: 8080, id: "octopus"
     win_server.vm.provision "shell", path:"ConfigureRemotingForAnsible.ps1"
   end
 

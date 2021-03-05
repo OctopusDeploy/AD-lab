@@ -80,6 +80,7 @@
 - name: Ensure that admin@octopusadlab.local is present as Domain Admin
   win_domain_user:
     name: admin
+    upn: admin@OCTOPUSADLAB.local
     password: StrongPass123!
     password_never_expires: yes
     state: present
@@ -90,6 +91,7 @@
 - name: Ensure that bob@octopusadlab.local is present in OU cn=Users,dc=OCTOPUSADLAB,dc=local
   win_domain_user:
     name: bob
+    upn: bob@OCTOPUSADLAB.local
     password: StrongPass123!
     password_never_expires: yes
     state: present
@@ -100,6 +102,7 @@
 - name: Ensure that alice@octopusadlab.local is present in OU cn=Users,dc=OCTOPUSADLAB,dc=local
   win_domain_user:
     name: alice
+    upn: alice@OCTOPUSADLAB.local
     password: StrongPass123!
     password_never_expires: yes
     state: present

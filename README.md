@@ -6,11 +6,13 @@ This lab is made of two virtual machines:
 
 The lab setup is automated using vagrant and ansible automation tools, and the OctopusDSC configuration library.
 
-After setup, you should have an AD-connected Octopus Deploy instance with the latest public version, configured to only be authenticated against the Active Directory server.
+After setup, you should have an AD-connected Octopus Deploy instance with the latest public version, configured to only be authenticated against the Active Directory server. `admin@octopusdeploy.local` will be the administrator of the Octopus Server, and you should be able to add `alice` and `bob` from the same domain as users, if you like.
+
+If you're using Virtualbox, you should be able to reach the Server instance on `localhost:8080` from your *host* as the ports are forwarded from the guest out to your local host.
 
 ### Requirements
 
-So far the lab has only been tested on a macOS machine, but it should work as well on linux. Ansible has some problems with Windows hosts so I don't know about that.
+So far the lab has only been tested on a macOS machine, but it should work as well on linux. It has not been tested on a Windows host.
 
 For the setup to work properly you need to install:
 - **vagrant** from their official site [vagrant](https://www.vagrantup.com/). The version you can install through your favourite package manager (apt, yum, ...) is probably not the latest one.

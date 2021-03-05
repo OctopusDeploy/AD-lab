@@ -6,6 +6,8 @@ This lab is made of two virtual machines:
 
 The lab setup is automated using vagrant and ansible automation tools, and the OctopusDSC configuration library.
 
+After setup, you should have an AD-connected Octopus Deploy instance with the latest public version, configured to only be authenticated against the Active Directory server.
+
 ### Requirements
 
 So far the lab has only been tested on a macOS machine, but it should work as well on linux. Ansible has some problems with Windows hosts so I don't know about that.
@@ -16,11 +18,13 @@ For the setup to work properly you need to install:
 
 Vagrant will be needed to provision the virtual machines and ansible to automate their configuration.
 
+> NOTE: From a 'cold start', you're going to download over 6GB of images here, mostly the Windows Server VM image. This might take some time.
+
 ### Setup
 
 The default domain will be octopusadlab.local, on the subnet 192.168.56.1/24 and each machine has only been allocated with 1024MB of memory. If you want to change some of these settings some small modifications are required inside the configuration files.
 
-NOTE: On macOS Big Sur, you will need to `export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES` before running `ansible-playbook` to work around a bug in Python on macOS.
+> NOTE: On macOS Big Sur, you will need to `export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES` before running `ansible-playbook` to work around a [bug in Python on macOS](https://github.com/ansible/ansible/issues/49207).
 
 To have the lab up and running the two commands you need to run are:
 - `vagrant up`

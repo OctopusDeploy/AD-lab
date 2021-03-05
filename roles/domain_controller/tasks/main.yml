@@ -30,6 +30,7 @@
 
 - name: Reboot
   win_reboot:
+    reboot_timeout: 900
   when: win_hostname.reboot_required
   
 - name: Ensure that Administrator is present with a valid password

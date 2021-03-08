@@ -17,6 +17,7 @@ So far the lab has only been tested on a macOS machine, but it should work as we
 For the setup to work properly you need to install:
 - **vagrant** from their official site [vagrant](https://www.vagrantup.com/). The version you can install through your favourite package manager (apt, yum, ...) is probably not the latest one.
 - **ansible** following the extensive guide on their website [ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html).
+- [**VirtualBox**](https://www.virtualbox.org/wiki/Downloads) to host the VMs. 
 
 Vagrant will be needed to provision the virtual machines and ansible to automate their configuration.
 

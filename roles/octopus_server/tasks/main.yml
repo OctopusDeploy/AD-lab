@@ -30,8 +30,8 @@
     Name: "OctopusServer"
     WebListenPrefix: "http://localhost:8080"
     SqlDbConnectionString: "Server=localhost;Database=Octopus;Trusted_Connection=True;"
-    OctopusAdminCredential_username: admin@OCTOPUSADLAB.local
-    OctopusAdminCredential_password: {{ Administrator_pass }}
+    OctopusAdminCredential_username: "admin@OCTOPUSADLAB.local"
+    OctopusAdminCredential_password: "{{ Administrator_pass }}"
     AllowUpgradeCheck: false
     AllowCollectionOfUsageStatistics: false
     AutoLoginEnabled: true

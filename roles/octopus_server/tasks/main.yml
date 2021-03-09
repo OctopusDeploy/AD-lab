@@ -17,6 +17,11 @@
     name: OctopusDSC
     state: present
 
+- name: Windows | Check for xNetworking Powershell module
+  win_psmodule:
+    name: xNetworking
+    state: present
+
 - name: Windows | Configure local Octopus Server with DSC
   win_dsc:
     resource_name: cOctopusServer
@@ -26,7 +31,7 @@
     WebListenPrefix: "http://localhost:8080"
     SqlDbConnectionString: "Server=localhost;Database=Octopus;Trusted_Connection=True;"
     OctopusAdminCredential_username: admin@OCTOPUSADLAB.local
-    OctopusAdminCredential_password: StrongPass123!
+    OctopusAdminCredential_password: {{ Administrator_pass }}
     AllowUpgradeCheck: false
     AllowCollectionOfUsageStatistics: false
     AutoLoginEnabled: true
@@ -40,3 +45,17 @@
     Enabled: true
     AllowFormsAuthenticationForDomainUsers: true
     ActiveDirectoryContainer: "cn=Users,dc=OCTOPUSADLAB,dc=local"
+
+- name: Firewall | Allow Octopus Server for instance
+  win_dsc:
+    resource_name: xFirewall
+    Name: "Octopus Server Inbound"
+    Ensure: present
+    Enabled: True
+    LocalPort: "8080"
+    Protocol: "TCP"
+    Profile: "Domain"
+    Direction: "Inbound"
+    Action: Allow
+    Description: "Allows Octopus Server to access the network"  
+  tags: configure_firewall

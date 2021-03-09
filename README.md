@@ -6,9 +6,9 @@ This lab is made of two virtual machines:
 
 The lab setup is automated using vagrant and ansible automation tools, and the OctopusDSC configuration library.
 
-After setup, you should have an AD-connected Octopus Deploy instance with the latest public version, configured to only be authenticated against the Active Directory server. `admin@octopusdeploy.local` will be the administrator of the Octopus Server, and you should be able to add `alice` and `bob` from the same domain as users, if you like.
+After setup, you should have an AD-connected Octopus Deploy instance with the latest public version, configured to only be authenticated against the Active Directory server. `admin@octopusdeploy.local` will be the administrator of the Octopus Server, and you should be able to add `alice` and `bob` from the same domain as users, if you like. Their passwords are set in `/group_vars/all`.
 
-If you're using Virtualbox, you should be able to reach the Server instance on `localhost:8080` from your *host* as the ports are forwarded from the guest out to your local host.
+If you're using Virtualbox, you should be able to reach the Server instance on `localhost:8080` from your *host* as the ports are forwarded from the guest out to your local host. You will need to use form-based auth when accessing the instance from outside the VMs.
 
 ### Requirements
 

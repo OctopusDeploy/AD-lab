@@ -47,7 +47,6 @@ This doesn't seem to impact ansible's ability to connect to the VMs later on.
 If you run into some problems while running the main playbook, you can also the independent playbooks:
 - `ansible-playbook -i hosts domain_controller.yml`
 - `ansible-playbook -i hosts member_server.yml`
-- `ansible-playbook -i hosts win_workstation.yml`
 
 ### Thanks to
 

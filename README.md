@@ -1,3 +1,17 @@
+## Note: This repo has been archived (July 2022) as it is currently unused
+
+This repo may be useful in setting up local instances for testing Active Directory. In the case that this repo gets unarchived, the following configuration settings should be checked and updated in the case that they are out-of-date:
+
+### Vagrantfile
+```
+win_server.vm.box = "StefanScherer/windows_2019"
+```
+
+### roles/mssql/defaults/main.yml
+```
+mssql_installation_source: https://go.microsoft.com/fwlink/?linkid=853016
+```
+
 # Active Directory Lab
 
 This lab is made of two virtual machines:
